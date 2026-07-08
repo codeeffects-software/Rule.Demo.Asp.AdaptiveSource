@@ -1,0 +1,179 @@
+﻿
+/* Code Effects Business Rules Editor | Light Theme | CodeEffects.com/support | 6.4.27 */
+
+span.ceFlow, span.ceClause, span.ceOperator, span.ceParenthesis, span.ceBrace, span.ceAction, span.ceMethod, span.ceField, span.ceEmpty, span.ceValue, span.ceFieldInput, span.ceWarn, span.ceUndo, span.ceCurrent, input[type="text"].ceValue, table.ceHeader td span {
+	text-shadow: 1.4px 1.1px 3px #bcbcbc;
+}
+
+	span.ceFlow:hover, span.ceClause:hover, span.ceOperator:hover, span.ceParenthesis:hover, span.ceBrace:hover, span.ceAction:hover, span.ceMethod:hover, span.ceField:hover, span.ceValue:hover, span.ceFieldInput:hover, span.ceTab:hover, span.ceNewLine:hover {
+		background-color: #edf2f5;
+	}
+
+div.cePromptContainer {
+	background-color: #FFF;
+	box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+	div.cePromptContainer input.cePromptSave, div.cePromptContainer input.cePromptCancel {
+		background: #f5f6f9;
+	}
+
+	div.cePromptContainer input.cePromptSave {
+		color: green;
+		border: 1px solid green;
+	}
+
+	div.cePromptContainer input.cePromptCancel {
+		border: 1px solid #b9b9b9;
+	}
+
+		div.cePromptContainer input.cePromptSave:hover, div.cePromptContainer input.cePromptCancel:hover {
+			color: darkorange;
+			border: 1px solid darkorange;
+		}
+
+	div.cePromptContainer textarea.cePromptInput::placeholder {
+		color: #b9b9b9;
+	}
+
+	div.cePromptContainer textarea.cePromptInput {
+		border: 1px solid #D4E1D1;
+		background: #f5f6f9;
+	}
+
+		div.cePromptContainer textarea.cePromptInput:hover {
+			border: 1px solid #0297d7;
+			background: #def0fb;
+		}
+
+span.ceAction, span.ceMethod, span.ceField {
+	color: #0088db;
+}
+
+span.ceValue, span.ceFieldInput {
+	color: #17A100;
+}
+
+span.ceContextRoot {
+	color: darkorange;
+}
+
+span.ceUndo {
+	color: #0088db;
+}
+
+	span.ceUndo:hover {
+		color: darkorange;
+		background-color: #edf2f5;
+	}
+
+div.ceHelp {
+	color: #447796;
+}
+
+span.ceEmpty {
+	color: green;
+}
+
+td.ceDays {
+	color: #B4B4B4;
+}
+
+table.ceHeader, td.ceSelected, td.ceToday, span.ceWarn {
+	color: #000;
+}
+
+input[type="text"].ceValue {
+	color: #E30000;
+}
+
+input[type="text"].ceNameBox::placeholder, input[type=text].ceNameBoxDefault::placeholder, input[type=text].ceDescriptionBox::placeholder, input[type=text].ceDescriptionBoxDefault::placeholder {
+	color: #b9b9b9;
+}
+
+div.ceError, input.ceError, div.ceValueWarn, span.ceAdpError {
+	color: #C00;
+}
+
+table.ceCal, table.ceTime, td.ceCalTime, div.ceMenu, table.ceHeader {
+	background-color: #FFF;
+}
+
+	div.ceMenu div {
+		color: #333;
+	}
+
+		div.ceMenu div:hover, div.ceMenu div.ceItemOver, td.ceRollover {
+			color: #fff;
+			background-color: #176CCF;
+		}
+
+span.ceCurrent {
+	background-color: #dce4e8;
+}
+
+div.ceHelp {
+	background-color: #e6f5ff;
+}
+
+span.ceHighlight {
+	background-color: #FFF34D;
+}
+
+span.ceWarn {
+	background-color: #F00;
+}
+
+td.ceToday {
+	background-color: #B5D0E8;
+}
+
+td.ceSelected, span.ceSelected {
+	background-color: #56C22B;
+	color: #fff;
+}
+
+table.ceCal, table.ceTime, td.ceCalTime, div.ceMenu {
+	border: solid 1px transparent;
+}
+
+table.ceCal, table.ceTime, div.ceMenu {
+	box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+	.ceSave, .ceDelete, .ceRulesMenu, table.ceTime input[type=button], table.ceTime select, td.ceCalTime input[type=button], td.ceCalTime select {
+		background: #f5f6f9;
+	}
+
+.ceRulesMenu {
+	border: 1px solid #D4E1D1;
+}
+
+table.ceTime select, td.ceCalTime select {
+	border: 1px solid #777;
+}
+
+.ceSave, table.ceTime input[type=button], td.ceCalTime input[type=button] {
+	color: green;
+	border: 1px solid green;
+}
+
+.ceDelete {
+	color: red;
+	border: 1px solid red;
+}
+
+	.ceSave:hover, .ceDelete:hover, .ceRulesMenu:hover, table.ceTime input[type=button]:hover, td.ceCalTime input[type=button]:hover {
+		color: darkorange;
+		border: 1px solid darkorange;
+	}
+
+.ceNameBox, .ceDescriptionBox, .ceNameBoxDefault, .ceDescriptionBoxDefault {
+	border: 1px solid #D4E1D1;
+	background: #f5f6f9;
+}
+
+	.ceNameBox:hover, .ceDescriptionBox:hover, .ceNameBoxDefault:hover, .ceDescriptionBoxDefault:hover {
+		border: 1px solid #0297d7;
+		background: #def0fb;
+	}

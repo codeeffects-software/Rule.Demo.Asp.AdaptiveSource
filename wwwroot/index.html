@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Code Effects ASP.NET Adaptive Source Demo</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<script type="module" src="codeeffects.editor.js?uvkg"></script>
+	<link rel="stylesheet" href="/codeeffects.common.css" />
+	<link rel="stylesheet" href="/codeeffects.light.css" />
+</head>
+<body style="font-family: Arial,'Lucida Sans', 'Lucida Sans Regular', sans-serif; font-size:16px;">
+	<div style="width: 60%; margin: 50px auto 30px;">
+
+		<h2>Business Rules Editor</h2>
+		<div id="divEditor" style="margin-top:60px;"></div>
+
+		<div id="divInfo" style="margin:50px 0;color:red;">&nbsp;</div>
+		<div><input type="button" id="btnEvaluate" value="Evaluate" style="width:20%" /></div>
+
+		<p style="margin-top:50px;">This demo project uses the Patient class (/Patient.cs) as its source object. The API service (/Api.cs) creates and populates an instance of this class with hard-coded data in the /evaluate endpoint, then evaluates the rule displayed in the Rule Area against that instance. Refer to the /ReadMe.txt file for implementation details.</p>
+	</div>
+
+	<script type="text/javascript">
+
+		// Declare editor as a global var
+		var editor = null;
+
+		// Returns client settings for the editor
+		async function settings()
+		{
+			const res = await fetch('/api/settings', { headers: { 'Accept': 'application/json' } });
+			const settings = await res.json();
+
+			// Init the editor
+			editor = $rule.init(
+				{
+					id: "divEditor",
+					refData: "AnyStringDataYouWouldLikeToSendBetweenClientAndServer",
+					showHelpString: true,
+					showToolBar: true,
+					globalData: settings.globalData,
+					editorData: settings.editorData,
+					saveRuleCallback: save,
+					loadRuleCallback: load,
+					deleteRuleCallback: remove,
+					notifyCallback: info,
+
+					// Passing the adaptiveSoutrce object to the init() method
+					// instructs the editor's main script to use Adaptive Source on the client
+					adaptiveSource:
+					{
+						menuCallback: menu
+					}
+				});
+
+			// Evaluate the rule currently displayed in the rule area
+			// when the user clicks the Evaluate button
+			document.getElementById("btnEvaluate").onclick = function (e)
+			{
+				// Disable the Evaluate button during the evaluation
+				this.value = "Working...";
+				this.disabled = true;
+
+				evaluate();
+			};
+		};
+
+		// Gets the rule context from the editor, sends it to the server,
+		// receives menu back and returns it to the editor
+		async function menu(args)
+		{
+			const res = await fetch('/api/menu', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ type: args.type, context: args.context })
+			});
+
+			const data = await res.json();
+
+			editor.loadAdaptiveData(data);
+		};
+
+		// Loads the rule by its ID from the server
+		// The ID is supplied by the editor
+		async function load(ruleId)
+		{
+			const res = await fetch(`/api/load/${encodeURIComponent(ruleId)}`);
+			const data = await res.json();
+			editor.loadRule(data);
+		};
+
+		// Saves the rule currently displayed in the rule area
+		async function save()
+		{
+			const res = await fetch('/api/save', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(editor.extract())
+			});
+
+			const data = await res.json();
+
+			if (data.isRuleEmpty)
+			{
+				info("The rule is empty");
+			}
+			else if (!data.isRuleValid)
+			{
+				editor.loadInvalids(data.clientInvalidData);
+				info("&nbsp;");
+			}
+			else
+			{
+				// The server returns the new rule ID using the Output property.
+				// You are free to use any value for that. The editor needs this ID.
+				editor.saved(data.output);
+
+				info("The rule was saved successfully");
+			}
+		};
+
+		// Deletes the rule currently displayed in the rule area
+		async function remove(ruleId)
+		{
+			const res = await fetch('/api/delete', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(ruleId)
+			});
+
+			// Let the editor know that this rule is deleted and clear the rule area
+			editor.deleted(editor.getRuleId());
+			editor.clear();
+
+			info("The rule was deleted successfully");
+		};
+
+		// Evaluates the rule currently displayed in the rule area
+		// against the input values in the Data Test Form
+		async function evaluate()
+		{
+			info("Engine Free edition: 5 seconds delay in evaluation...");
+
+			const ev = await fetch('/api/evaluate', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(editor.extract())
+			});
+
+			// Reset the Evaluate button
+			var b = document.getElementById("btnEvaluate");
+			b.value = "Evaluate";
+			b.disabled = false;
+
+			const res = await ev.json();
+
+			if (res.isRuleEmpty)
+			{
+				info("The rule is empty");
+			}
+			else if (!res.isRuleValid)
+			{
+				// Load invalid elements
+				editor.loadInvalids(res.clientInvalidData);
+				info("&nbsp;");
+			}
+			else
+			{
+				// Display the evaluation output
+				info(res.output);
+			}
+		};
+
+		function nullOrValue(id)
+		{
+			var v = document.getElementById(id).value.trim();
+			return v.length > 0 ? v : null;
+		};
+
+		function info(message)
+		{
+			document.getElementById("divInfo").innerHTML = message;
+		};
+
+		settings(); // Get everything going on page load
+
+	</script>
+</body>
+</html>

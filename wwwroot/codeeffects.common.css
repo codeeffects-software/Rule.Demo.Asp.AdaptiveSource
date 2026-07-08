@@ -1,0 +1,289 @@
+﻿
+/* Code Effects Business Rules Editor | Common Styles | CodeEffects.com/support | 6.4.31 */
+
+div.ceMenu div {
+	font-size: 95%;
+}
+
+span.ceEmpty {
+	font-style: italic;
+}
+
+td.ceDays {
+	font-size: 90%;
+}
+
+table.ceCal {
+	width: 0 !important;
+}
+
+	table.ceCal table, table.ceTime table {
+		box-shadow: none;
+	}
+
+span.ceFlow, span.ceAction, span.ceMethod, span.ceField, span.ceValue, span.ceFieldInput, table.ceHeader, span.ceBrace {
+	font-weight: 300;
+}
+
+span.ceUndo {
+	margin-left: 2px;
+	cursor: pointer;
+}
+
+span.ceFlow, span.ceClause, span.ceOperator, span.ceParenthesis, span.ceNewLine, span.ceBrace, span.ceAction, span.ceMethod, span.ceField, span.ceEmpty, span.ceUndo, span.ceValue, span.ceFieldInput, span.ceTab, span.ceNewLine, span.ceWarn, span.ceCurrent {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none
+}
+
+div.ceRule {
+	padding: 0 10px;
+}
+
+table.ceCal td.ceCal, table.ceTime td.ceTime {
+	padding: 16px;
+}
+
+td.ceDay, td.ceToday, td.ceRollover, td.ceDays, td.ceSelected {
+	padding: 4px
+}
+
+span.ceFlow, span.ceClause, span.ceOperator, span.ceParenthesis, span.ceNewLine, span.ceBrace, span.ceAction, span.ceMethod, span.ceField, span.ceEmpty, span.ceValue, span.ceFieldInput, span.ceTab, span.ceNewLine, span.ceWarn, span.ceCurrent, input[type="text"].ceValue {
+	margin-bottom: 1px;
+	margin-right: 1px
+}
+
+dev.ceMenu div, div.ceRule span, table.ceCal table, table.ceCal table td, table.ceTime table, table.ceTime table td {
+	border: 0;
+}
+
+span.ceFlow, span.ceField, span.ceAction, span.ceMethod, span.ceValue, span.ceFieldInput, span.ceClause, span.ceOperator, span.ceUndo, span.ceParenthesis, span.ceTab, span.ceNewLine, span.ceBrace, span.ceCurrent, table.ceHeader, td.ceToday, td.ceRollover, td.ceSelected {
+	border-radius: 4px
+}
+
+table.ceCal, table.ceTime, div.ceHelp {
+	border-radius: 6px;
+}
+
+td.ceDay, td.ceToday, td.ceRollover, td.ceDays, td.ceSelected {
+	text-align: center
+}
+
+table.ceCal table td, table.ceTime table td {
+	vertical-align: middle
+}
+
+td.ceDay, td.ceToday, td.ceRollover, td.ceDays, td.ceSelected, div.ceToolBar, span.ceFlow, span.ceField, span.ceAction, span.ceMethod, span.ceClause, span.ceOperator, span.ceParenthesis, span.ceTab, span.ceNewLine, span.ceValue, span.ceFieldInput, div.ceHelp, span.ceBrace {
+	cursor: default
+}
+
+input[type="text"].ceValue, input[type="text"].ceValue:hover, input[type="text"].ceValue:focus, input[type="text"].ceValue:active {
+	margin: 0 !important;
+	padding: 0 0 2px !important;
+	border: 0 !important;
+	outline: 0 !important;
+	background: transparent !important;
+}
+
+	input[type="text"].ceValue::-ms-clear {
+		display: none
+	}
+
+div.ceHelp {
+	font-size: 90%;
+	font-style: italic;
+	padding: 6px 12px;
+	margin-bottom: 20px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+div.ceMenu {
+	position: absolute;
+	padding: 10px;
+	overflow: auto;
+	border-radius: 9px;
+}
+
+	div.ceMenu div {
+		margin: 0;
+		padding: 6px 10px;
+		cursor: default;
+		white-space: nowrap;
+		max-width: 400px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		border-radius: 6px;
+	}
+
+		div.ceMenu div.ceMenuItemSymbol, div.ceMenu div.ceMenuItemName {
+			float: left;
+			padding-left: 3px;
+			padding-right: 3px
+		}
+
+		div.ceMenu div.ceMenuItemSymbol {
+			font-weight: bold
+		}
+
+		div.ceMenu div.ceMenuItemClear {
+			clear: both
+		}
+
+div.ceRule {
+	-webkit-user-select: none;
+	-webkit-touch-callout: none;
+}
+
+div.ceToolBar {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+div.cePromptContainer {
+	padding: 20px 40px;
+	border-radius: 16px;
+	width: auto;
+	border: solid 1px transparent;
+}
+
+	div.cePromptContainer div.cePromptButtons {
+		margin-top: 20px;
+		text-align: right;
+	}
+
+	div.cePromptContainer input.cePromptCancel {
+		margin-right: 10px;
+	}
+
+	div.cePromptContainer input.cePromptSave, div.cePromptContainer input.cePromptCancel {
+		cursor: default;
+		padding: 6px 10px;
+		border-radius: 5px;
+		width: auto;
+		font-size: 100%;
+	}
+
+	div.cePromptContainer textarea.cePromptInput {
+		padding: 12px;
+		border-radius: 8px;
+		font-size: 100%;
+		width: 560px;
+		height: 330px;
+	}
+
+table.ceTime table td, td.ceCalTime {
+	display: flex;
+	align-items: center;
+	width: auto;
+}
+
+td.ceCalTime {
+	padding: 0 12px 10px;
+}
+
+table.ceTime table td, td.ceCalTime {
+	gap: 4px;
+}
+
+	table.ceTime input[type=button], td.ceCalTime input[type=button] {
+		margin-left: 8px;
+	}
+
+	.ceSave, .ceDelete, .ceRulesMenu, table.ceTime input[type=button], table.ceTime select, td.ceCalTime input[type=button], td.ceCalTime select {
+		cursor: default;
+		padding: 6px 10px;
+		border-radius: 5px;
+		width: auto;
+	}
+
+.ceSave, .ceDelete, .ceRulesMenu {
+	font-size: 92%;
+}
+
+div.ceInputName, div.ceInputDesc {
+	width: 100% !important;
+}
+
+.ceNameBox, .ceDescriptionBox, .ceNameBoxDefault, .ceDescriptionBoxDefault {
+	padding: 6px 10px;
+	border-radius: 5px;
+	font-size: 96%;
+	box-sizing: border-box;
+}
+
+@media (min-width: 301px) {
+
+	span.ceFlow, span.ceClause, span.ceOperator, span.ceParenthesis, span.ceNewLine, span.ceBrace, span.ceAction, span.ceMethod, span.ceField, span.ceEmpty, span.ceUndo, span.ceValue, span.ceFieldInput, span.ceTab, span.ceWarn, span.ceCurrent, input[type="text"].ceValue, table.ceTime input[type=button], table.ceTime select, table.ceCal table td, table.ceHeader table td, td.ceCalTime input[type=button], td.ceCalTime select, div.ceMenu div {
+		font-size: 102%;
+	}
+
+	div.cePromptContainer textarea.cePromptInput {
+		width: 240px;
+		height: 140px;
+	}
+
+	.ceNameBox, .ceDescriptionBox, .ceNameBoxDefault, .ceDescriptionBoxDefault {
+		width: calc(100% - 4px) !important;
+	}
+
+	.ceRulesMenu {
+		margin-right: 4px;
+	}
+
+	.ceDelete {
+		margin-left: 4px;
+	}
+}
+
+@media (min-width: 1001px) {
+
+	span.ceFlow, span.ceClause, span.ceOperator, span.ceParenthesis, span.ceNewLine, span.ceBrace, span.ceAction, span.ceMethod, span.ceField, span.ceUndo, span.ceEmpty, span.ceValue, span.ceFieldInput, span.ceTab, span.ceWarn, span.ceCurrent, input[type="text"].ceValue, table.ceTime input, table.ceTime select, td.ceCalTime input[type=button], td.ceCalTime select, table.ceCal table td, table.ceHeader table td, div.ceMenu div {
+		font-size: 105%
+	}
+
+	div.cePromptContainer textarea.cePromptInput {
+		width: 400px;
+		height: 200px;
+	}
+
+	.ceNameBox, .ceDescriptionBox, .ceNameBoxDefault, .ceDescriptionBoxDefault {
+		width: calc(100% - 6px) !important;
+	}
+
+	.ceRulesMenu {
+		margin-right: 6px;
+	}
+
+	.ceDelete {
+		margin-left: 6px;
+	}
+}
+
+@media (min-width: 1601px) {
+
+	span.ceFlow, span.ceClause, span.ceOperator, span.ceParenthesis, span.ceNewLine, span.ceBrace, span.ceAction, span.ceMethod, span.ceField, span.ceUndo, span.ceEmpty, span.ceValue, span.ceFieldInput, span.ceTab, span.ceWarn, span.ceCurrent, input[type="text"].ceValue, table.ceTime input[type=button], table.ceTime select, table.ceCal table td, table.ceHeader table td {
+		font-size: 110%
+	}
+
+	div.cePromptContainer textarea.cePromptInput {
+		width: 560px;
+		height: 300px;
+	}
+
+	.ceNameBox, .ceDescriptionBox, .ceNameBoxDefault, .ceDescriptionBoxDefault {
+		width: calc(100% - 8px) !important;
+	}
+
+	.ceRulesMenu {
+		margin-right: 8px;
+	}
+
+	.ceDelete {
+		margin-left: 8px;
+	}
+}

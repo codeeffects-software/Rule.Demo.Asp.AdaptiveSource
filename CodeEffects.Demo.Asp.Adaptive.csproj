@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CodeEffects.Rule.Editor" Version="6.0.3.41" />
+    <PackageReference Include="CodeEffects.Rule.Engine" Version="6.0.3.29" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<CodeEffectsFiles Include="node_modules\codeeffects\codeeffects.common.css" />
+		<CodeEffectsFiles Include="node_modules\codeeffects\codeeffects.light.css" />
+		<CodeEffectsFiles Include="node_modules\codeeffects\codeeffects.editor.js" />
+	</ItemGroup>
+
+	<Target Name="CopyClientLibs" AfterTargets="Build">
+		<Copy SourceFiles="@(CodeEffectsFiles)" DestinationFolder="wwwroot" />
+	</Target>
+
+</Project>
